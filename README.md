@@ -39,7 +39,6 @@
 - [ ] Connecting ports by name
 - [ ] Three modules
 - [ ] Modules and vectors
-- [ ] Modules and vectors
 - [ ] Adder 1
 - [ ] Adder 2
 - [ ] Carry-select adder
