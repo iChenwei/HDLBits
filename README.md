@@ -34,23 +34,53 @@
 
 #### - Modules:Hierarchy
 
-- [ ] Modules
-- [ ] Connecting ports by position
-- [ ] Connecting ports by name
-- [ ] Three modules
-- [ ] Modules and vectors
-- [ ] Adder 1
-- [ ] Adder 2
-- [ ] Carry-select adder
-- [ ] Adder-subtractor
+- [x] Modules
+- [x] Connecting ports by position
+- [x] Connecting ports by name
+- [x] Three modules
+- [x] Modules and vectors
+- [x] Adder 1
+- [x] Adder 2
+- [x] Carry-select adder
+- [x] Adder-subtractor
 
 #### - Procedures
 
-- [ ] 
+- [ ] Always blocks(combinational)
+- [ ] Always blocks(clocked)
+- [ ] If statement
+- [ ] If statement latches
+- [ ] Case statement
+- [ ] Priority encoder
+- [ ] Priority encoder with casez
+- [ ] Avoiding latches
 
 #### - More Verilog Features
 
-- [ ] 
+- [ ] Conditional ternary operator
+- [ ] Reduction operators
+- [ ] Reduction:Even wider gates
+- [ ] Combinational for-loop:Vector reversal 2
+- [ ] Combinational for-loop:255-bit population count 
+- [ ] Generate for-loop:100-bit binary adder 2
+- [ ] Generate for-loop:100-digit BCD adder
 
 ### Circuits
 
+#### - Combinational Logic
+
+#### - Sequential Logic
+
+#### - Buildingi Larger Ciruits
+
+### Verification:Reading Simulations 
+
+#### - 
+
+### Verification:Writing Testbenches
+
+#### - 
+
+### CS450
+
+#### - 
