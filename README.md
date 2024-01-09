@@ -46,14 +46,14 @@
 
 #### - Procedures
 
-- [ ] Always blocks(combinational)
-- [ ] Always blocks(clocked)
-- [ ] If statement
-- [ ] If statement latches
-- [ ] Case statement
-- [ ] Priority encoder
-- [ ] Priority encoder with casez
-- [ ] Avoiding latches
+- [x] Always blocks(combinational)
+- [x] Always blocks(clocked)
+- [x] If statement
+- [x] If statement latches
+- [x] Case statement
+- [x] Priority encoder
+- [x] Priority encoder with casez
+- [x] Avoiding latches
 
 #### - More Verilog Features
 
