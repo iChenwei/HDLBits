@@ -57,17 +57,53 @@
 
 #### - More Verilog Features
 
-- [ ] Conditional ternary operator
-- [ ] Reduction operators
-- [ ] Reduction:Even wider gates
-- [ ] Combinational for-loop:Vector reversal 2
-- [ ] Combinational for-loop:255-bit population count 
-- [ ] Generate for-loop:100-bit binary adder 2
+- [x] Conditional ternary operator
+- [x] Reduction operators
+- [x] Reduction:Even wider gates
+- [x] Combinational for-loop:Vector reversal 2
+- [x] Combinational for-loop:255-bit population count 
+- [x] Generate for-loop:100-bit binary adder 2
 - [ ] Generate for-loop:100-digit BCD adder
 
 ### Circuits
 
 #### - Combinational Logic
+
+##### -- Basic Gates
+
+- [x] Wire
+
+- [x] GND
+
+- [x] NOR
+
+- [x] Another gate
+
+- [x] Two gates
+
+- [x] More logic gates
+
+- [x] 7420 chip
+
+- [ ] Truth  tables
+
+- [ ] Two-bit equality
+
+- [ ] Simple circuit A
+
+- [ ] Simple circuit B
+
+- [ ] Combine circuits A and B
+
+- [ ] Ring or vibrate
+
+- [ ] Thermostat
+
+- [ ] 3-bit population count
+
+- [ ] Gates and vectors
+
+- [ ] Even longer vectors
 
 #### - Sequential Logic
 
