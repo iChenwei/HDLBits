@@ -85,29 +85,99 @@
 
 - [x] 7420 chip
 
-- [ ] Truth  tables
+- [x] Truth  tables
 
-- [ ] Two-bit equality
+- [x] Two-bit equality
 
-- [ ] Simple circuit A
+- [x] Simple circuit A
 
-- [ ] Simple circuit B
+- [x] Simple circuit B
 
-- [ ] Combine circuits A and B
+- [x] Combine circuits A and B
 
-- [ ] Ring or vibrate
+- [x] Ring or vibrate
 
-- [ ] Thermostat
+- [x] Thermostat
 
-- [ ] 3-bit population count
+- [x] 3-bit population count
 
-- [ ] Gates and vectors
+- [x] Gates and vectors
 
-- [ ] Even longer vectors
+- [x] Even longer vectors
+
+##### -- Multiplexers
+
+- [ ] 2-to-1 multiplexer
+
+- [ ] 2-to-1 bus multiplexer
+
+- [ ] 9-to-1 multiplexer
+
+- [ ] 256-to-1 multiplexer
+
+- [ ] 256-to-1 4-bit multiplexer
+
+##### -- Arithmetic Circuits
+
+- [ ] Half adder
+
+- [ ] Full adder
+
+- [ ] 3-bit binary adder
+
+- [ ] Adder
+
+- [ ] Signed addition overflow
+
+- [ ] 100-bit binary adder
+
+- [ ] 4-digit BCD adder
+
+##### -- Karnaugh Map to Circuit
+
+- [ ] 3-variable
+
+- [ ] 4-variable1
+
+- [ ] 4-variable2
+
+- [ ] 4-variable3
+
+- [ ] Minumum SOP and POS
+
+- [ ] Karnaugh map1
+
+- [ ] Karnaugh map2
+
+- [ ] K-map implemented with a multiplexer
 
 #### - Sequential Logic
 
-#### - Buildingi Larger Ciruits
+##### -- Latches and Flip-Flops
+
+##### -- Counters
+
+##### -- Shift Registers
+
+##### -- More Circuits
+
+##### -- Finite State Machines
+
+#### - Building Larger Ciruits
+
+Counter with period 1000
+
+4-bit shift register and down counter
+
+FSM：Sequence 1101 recognizer
+
+FSM：Enable shift register
+
+FSM：The complete FSM
+
+The complete timer
+
+FSM：One-hot logic equations
 
 ### Verification:Reading Simulations 
 
