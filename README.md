@@ -155,31 +155,31 @@
 
 ##### -- Latches and Flip-Flops
 
-- [ ] D flip-flop
+- [x] D flip-flop
 
-- [ ] D flip-flops
+- [x] D flip-flops
 
-- [ ] DFF with reset
+- [x] DFF with reset
 
-- [ ] DFF with reset value
+- [x] DFF with reset value
 
-- [ ] DFF with asychronous reset
+- [x] DFF with asychronous reset
 
-- [ ] DFF with byte enable
+- [x] DFF with byte enable
 
-- [ ] D Latch
+- [x] D Latch
 
-- [ ] DFF1
+- [x] DFF1
 
-- [ ] DFF2
+- [x] DFF2
 
-- [ ] DFF+gate
+- [x] DFF+gate
 
-- [ ] Mux and DFF 1
+- [x] Mux and DFF 1
 
-- [ ] Mux and DFF 2
+- [x] Mux and DFF 2
 
-- [ ] DFFs and gates
+- [x] DFFs and gates
 
 - [ ] Create circuit from truth table
 
