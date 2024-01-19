@@ -181,33 +181,33 @@
 
 - [x] DFFs and gates
 
-- [ ] Create circuit from truth table
+- [x] Create circuit from truth table
 
-- [ ] Detect and edge
+- [x] Detect and edge
 
-- [ ] Detect both edges
+- [x] Detect both edges
 
-- [ ] Edge capture register
+- [x] Edge capture register
 
-- [ ] Dual-edge triggered flip-flop
+- [x] Dual-edge triggered flip-flop
 
 ##### -- Counters
 
-- [ ] Four-bit binary counter
+- [x] Four-bit binary counter
 
-- [ ] Decade counter
+- [x] Decade counter
 
-- [ ] Decade counter again
+- [x] Decade counter again
 
-- [ ] Slow decade counter
+- [x] Slow decade counter
 
-- [ ] Counter 1-12
+- [x] Counter 1-12
 
-- [ ] Counter 1000
+- [x] Counter 1000
 
-- [ ] 4-digit decimal counter
+- [x] 4-digit decimal counter
 
-- [ ] 12-hour clock
+- [x] 12-hour clock
 
 ##### -- Shift Registers
 
