@@ -211,9 +211,9 @@
 
 ##### -- Shift Registers
 
-- [ ] 4-bit shift register
+- [x] 4-bit shift register
 
-- [ ] Left/right rotator
+- [x] Left/right rotator
 
 - [ ] Left/right arithmetic shift by 1or 8
 
@@ -227,7 +227,7 @@
 
 - [ ] Shift register2
 
-- [ ] 3-input LUT
+- [ ] 3-input LUT0
 
 ##### -- More Circuits
 
