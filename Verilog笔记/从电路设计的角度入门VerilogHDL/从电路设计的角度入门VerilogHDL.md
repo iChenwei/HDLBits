@@ -132,3 +132,208 @@ DFF 是 D- Flip-Flop，即D触发器
 
 #### 2.1.6 存储器
 
+类似于二维数组
+
+<img src="./存储器1.png" alt="存储器1" style="zoom:33%;" />
+
+- 定义格式：`reg [datawidth] Memory_Name [addresswidth]`
+    - reg型
+    - `datawidth`：数据位宽
+    - Memory_Name：存储器名称
+    - `addresswidth`：地址位宽
+- 实例：
+    - `reg [7:0] RAM8x64 [0:63];`
+    - 定义了一个名称为`RAM8x64`的存储器RAM
+    - 数据位宽：8bit，一次读取8bit数据
+    - 地址位宽：64bit，共$2^{64}$个地址
+- 一次读取一个`datawidth`大小的数据，共`2^{addresswidth}`个地址
+- 【正确的使用方法】先将从存储器中读取到的数据赋值给某个寄存器，然后对该寄存器的某位进行操作
+- 【不推荐】不推荐使用verilog直接建模RAM；应当调用IP核
+
+## 3. 流水线与参数化设计
+
+### 3.1 流水线
+
+<img src="./流水线1.png" alt="流水线1" style="zoom:33%;" />
+
+- 插入一级流水线后：
+- 第一次Q产生结果需要两个时钟周期（前者，始终为两个时钟周期Q产生一次结果）
+- 第二次及后续的每一个周期，Q都会产生一个结果
+
+### 3.2 参数化
+
+#### 3.2.1 参数化定义`延时`：
+
+<img src="./参数化1.png" alt="参数化1" style="zoom:33%;" />
+
+#### 3.2.2 参数化定义`位宽`：
+
+<img src="./参数化2.png" alt="参数化2" style="zoom:33%;" />
+
+#### 3.2.3 使用`define`定义参数
+
+<img src="./参数化3.png" alt="参数化3" style="zoom:33%;" />
+
+- 常用于处理器设计中的译码阶段中，定义指令的`微码`
+
+#### 3.2.4 `define`和`parameter`的比较：
+
+- `define`：是全局的定义
+- `parameter`：是局部的定义
+
+### 3.3 模块实例化
+
+<img src="./模块实例化1.png" alt="模块实例化1" style="zoom:33%;" />
+
+- 【推荐】端口名对应调用法
+
+
+
+## 4. 基于开源EDA的仿真
+
+### 4.1 参考文献
+
+[一文学会使用全球第四大数字芯片仿真器iverilog - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/148795858)
+
+### 4.2 工具：iverilog和gtkwave
+
+仿真工具：`iverilog`
+
+- 将verilog文件，编译成目标文件
+
+波形查看工具：`gtkwave`
+
+- 查看verilog `VCD`格式的波形文件
+
+### 4.3 iverilog + gtkwave实例
+
+#### 4.3.1 RTL代码：
+
+```verilog
+// adder_rtl.v
+module adder(clk, rst_n, a, b, c);
+	input [3:0] a;
+	input [3:0] b;
+	output [7:0] c;
+	input clk, rst_n;
+
+	wire [3:0] a;
+	wire [3:0] b;
+	wire [7:0] c;
+
+	always @(posedge clk or negedge rst_m) begin
+		if (rst_n == 1'b0)
+			c <= 8'b0;
+		else
+			c <= a+b;
+	end
+endmodule
+```
+
+testbench代码：
+
+```verilog
+// adder_tb.v
+`timescale 1ns/1ns
+module adder_tb();
+	reg [3:0] a;
+	reg [3:0] b;
+	wire [7:0] c;
+
+	reg clk,rst_n;
+
+	adder DUT (
+		.clk(clk),
+		.rst_n(rst_n),
+		.a(a),
+		.b(b),
+		.c(c)
+	);
+
+	always begin
+		#10 clk = 0;
+		#10 clk = 1;
+	end
+
+	initial begin
+		rst_n = 1;
+		test(4'b1111, 4'b1111, 5'b11110);
+		$finish;
+	end
+	task test;
+		input [3:0] in;
+		input [3:0] in2;
+		input [7:0] e;
+		begin
+			a = in;
+			b = in2;
+			@(posedge clk);
+			@(negedge clk);
+			if (c == e) begin
+				$display("It works");
+			end else begin
+				$display("opps %d + %d ~= %d, expect %d", in, in2, c, e);
+			end
+		end
+	endtask
+    initial begin
+        $dumpfile("wave.vcd"); // 指定用作dumpfile的文件
+        $dumpvars; // dump all vars
+	end
+endmodule
+```
+
+#### 4.3.2 在testbench中添加dump，才能生成波形文件：
+
+```verilog
+initial begin
+    $dumpfile("wave.vcd"); // 指定用作dumpfile的文件
+    $dumpvars; // dump all vars
+end
+```
+
+- `$dumpfile()`：`dumpfile函数`生成波形
+- `$dumpvars()`：规定仿真中某些特定模块和信号的数据
+
+##### 1. vcd
+
+```verilog
+initial
+begin
+    $dumpfile("*.vcd");	  // *代表生成波形的文件名
+    $dumpvars(0,**);  // **代表测试文件名
+end
+```
+
+##### 2. fsdb（推荐）
+
+fsdb文件是verdi使用一种专用的数据格式，类似于VCD；数据量小，能够提高仿真速度；
+
+各家的仿真工具vcs、ncsim、modlesim等可以通过加载Verdi的PLI（一般位于安装目录下的`share/pli`目录下）直接`dump` `fsdb`文件。
+
+在testbench中加入如下几行代码：
+
+```verilog
+initial
+    begin
+        $fsdbDumpfile("*.fsdb"); // *代表生成的fsdb的文件名
+        $fsdbDumpvars(0,**);     // **代表测试文件名
+    end
+```
+
+#### 4.3.3 使用iverilog进行编译：
+
+```shell
+iverilog adder_rtl.v adder_tb.v -o adder_test
+```
+
+- `-o`：指定输出文件的名称
+
+#### 4.3.4 使用gtkwave查看vcd文件，观察波形：
+
+```shell
+gtkwave wave.vcd
+```
+
+----
+
